@@ -6,7 +6,7 @@
 /*   By: parthur- <parthur-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:31:27 by parthur-          #+#    #+#             */
-/*   Updated: 2024/02/22 22:08:18 by parthur-         ###   ########.fr       */
+/*   Updated: 2024/02/23 00:52:37 by parthur-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		exit(0);
-	ps = (t_push_swap *)malloc(sizeof(t_push_swap));
-	ps->a = (t_stack *)malloc(sizeof(t_stack));
-	ps->b = (t_stack *)malloc(sizeof(t_stack));
+	ps = malloc(sizeof(t_push_swap));
+	ps->a = malloc(sizeof(t_stack));
+	ps->b = malloc(sizeof(t_stack));
 	ps->a->node = NULL;
 	ps->a->head = NULL;
 	ps->b->node = NULL;

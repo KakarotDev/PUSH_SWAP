@@ -48,8 +48,8 @@ void	pa(t_push_swap *ps)
 	{
 		if (ps->b->head->prev)
 			ps->b->node = ps->b->head->prev;
-		if (ps->b->node->next)
-			ps->b->node->next = NULL;
+		//if (ps->b->node->next)
+			//ps->b->node->next = NULL;
 		if (ps->a->head == NULL)
 		{
 			init_double_list(&ps->a->tail, &ps->a->head, ps->b->head->value);

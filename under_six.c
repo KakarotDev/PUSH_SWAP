@@ -101,7 +101,11 @@ void	under_six(t_push_swap *ps)
 		under_four(ps);
 		pa(ps);
 		ra(ps);
-		pa(ps);
-		ra(ps);
+		if (ps->size > 4)
+		{
+			pa(ps);
+			ra(ps);
+		}
+		
 	}
 }

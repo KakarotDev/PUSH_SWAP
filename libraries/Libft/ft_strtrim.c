@@ -16,9 +16,7 @@ static int	front(char const *s1, char const *set)
 {
 	int			set_len;
 	int			index;
-	char const	*str;
-
-	str = NULL;
+	
 	index = 0;
 	set_len = ft_strlen(set) - 1;
 	while (set_len >= 0)
@@ -38,9 +36,7 @@ static int	back(char const *s1, char const *set)
 {
 	int			set_len;
 	int			index;
-	char const	*str;
 
-	str = NULL;
 	index = ft_strlen(s1) - 1;
 	set_len = ft_strlen(set) - 1;
 	while (set_len >= 0)

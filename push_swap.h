@@ -6,7 +6,7 @@
 /*   By: parthur- <parthur-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:31:30 by parthur-          #+#    #+#             */
-/*   Updated: 2024/02/22 03:21:43 by parthur-         ###   ########.fr       */
+/*   Updated: 2024/02/27 18:48:40 by parthur-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,14 @@ typedef struct s_push_swap
 
 void	init_double_list_b(t_node **tail, t_node **head,
 			int content, int index);
-char	*handling_arguments(char *arg);
+char	*handling_arguments(char *arg, t_push_swap *ps);
 void	creat_stacks(t_push_swap *ps, char **argv, int argc);
+void	if_we_have_two_or_less(t_push_swap *ps);
+void	is_it_already_organized(t_push_swap *ps);
 void	create_index(t_push_swap *ps);
+void	error(t_push_swap *ps);
 void	defining_parts(t_push_swap *ps);
+void	under_six(t_push_swap *ps);
 t_price	what_is_the_price(t_push_swap *ps);
 void	creating_inverse_pyramid(t_push_swap *ps);
 void	where_is_the_one(t_push_swap *ps);

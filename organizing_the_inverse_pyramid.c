@@ -6,7 +6,7 @@
 /*   By: parthur- <parthur-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 20:43:47 by parthur-          #+#    #+#             */
-/*   Updated: 2024/02/22 23:32:31 by parthur-         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:19:19 by parthur-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,12 @@ void	defining_parts(t_push_swap *ps)
 
 void	h_won(t_push_swap *ps, t_price p)
 {
-	if (!ps->control_up)
-		ps->control_up = 0;
-	if (!ps->control_down)
-		ps->control_down = 0;
+	int	i;
+
+	i = p.cheaper_h->index;
 	while (ps->a->head->value != p.cheaper_h->value)
 		ra(ps);
-	if (p.cheaper_h->index >= ps->middle)
+	if (i >= ps->middle)
 		ps->control_up++;
 	else
 		ps->control_down++;
@@ -72,7 +71,7 @@ void	h_won(t_push_swap *ps, t_price p)
 	if (ps->control_down == ps->rltv_size_down)
 		ps->rltv_size_down += ps->piece;
 	pb(ps);
-	if (p.cheaper_h->index < ps->middle)
+	if (i < ps->middle)
 		rb(ps);
 }
 

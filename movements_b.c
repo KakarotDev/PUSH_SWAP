@@ -6,7 +6,7 @@
 /*   By: parthur- <parthur-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 23:30:31 by parthur-          #+#    #+#             */
-/*   Updated: 2024/02/22 02:11:00 by parthur-         ###   ########.fr       */
+/*   Updated: 2024/02/27 19:11:15 by parthur-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,26 @@ void	sb(t_push_swap *ps)
 	if (ps->b->head == NULL)
 		return ;
 	ps->b->node = ps->b->head->prev;
-	if (ps->b->node == NULL)
-		return ;
-	ps->b->head->prev = ps->b->node->prev;
-	ps->b->head->next = ps->b->node;
-	ps->b->node->prev->next = ps->b->head;
-	ps->b->node->prev = ps->b->head;
-	ps->b->node->next = NULL;
-	ps->b->head = ps->b->node;
+	if (ps->b->head->prev->prev == NULL)
+	{
+		ps->b->tail = ps->b->head;
+		ps->b->head = ps->b->node;
+		ps->b->tail->prev = NULL;
+		ps->b->head->next = NULL;
+		ps->b->head->prev = ps->b->tail;
+		ps->b->tail->next = ps->b->head;
+	}
+	else
+	{
+		if (ps->b->node == NULL)
+			return ;
+		ps->b->head->prev = ps->b->node->prev;
+		ps->b->head->next = ps->b->node;
+		ps->b->node->prev->next = ps->b->head;
+		ps->b->node->prev = ps->b->head;
+		ps->b->node->next = NULL;
+		ps->b->head = ps->b->node;
+	}
 	ft_printf("sb\n");
 }
 

@@ -6,7 +6,7 @@
 /*   By: parthur- <parthur-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:37:38 by parthur-          #+#    #+#             */
-/*   Updated: 2024/02/20 02:44:37 by parthur-         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:20:21 by parthur-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void	create_index(t_push_swap *ps)
 {
 	int			index;
 	long int	control;
-	int			aux;
+	long int	aux;
 	t_node		*indicator;
 
 	index = 1;
-	aux = -2147483648;
+	aux = -2147483649;
 	ps->a->node = ps->a->head;
 	while (index <= ps->size)
 	{
@@ -41,33 +41,34 @@ void	create_index(t_push_swap *ps)
 	}
 }
 
-int	checking_duplicity(long int arg, t_stack *stack)
+int	checking_duplicity(long int arg, t_push_swap *ps)
 {
 	t_node	*aux;
 
 	if (arg > 2147483647 || arg < -2147483648)
-		return (0);
-	aux = stack->node;
-	if (stack->node == NULL)
+		error(ps);
+	aux = ps->a->node;
+	if (ps->a->node == NULL)
 		return (1);
 	else
 	{
-		stack->node = stack->tail;
-		while (stack->node)
+		ps->a->node = ps->a->tail;
+		while (ps->a->node)
 		{
-			if (stack->node->value == arg)
+			if (ps->a->node->value == arg)
 			{
-				stack->node = aux;
+				ps->a->node = aux;
+				error(ps);
 				return (0);
 			}
-			stack->node = stack->node->next;
+			ps->a->node = ps->a->node->next;
 		}
-		stack->node = aux;
+		ps->a->node = aux;
 		return (1);
 	}
 }
 
-char	*handling_arguments(char *arg)
+char	*handling_arguments(char *arg, t_push_swap *ps)
 {
 	int	i;
 	int	len;
@@ -84,7 +85,10 @@ char	*handling_arguments(char *arg)
 	if (i == len)
 		return (arg);
 	else
-		return (NULL);
+	{
+		error(ps);
+		return (0);
+	}	
 }
 
 void	creat_stacks(t_push_swap *ps, char **argv, int argc)
@@ -95,9 +99,9 @@ void	creat_stacks(t_push_swap *ps, char **argv, int argc)
 	i = 0;
 	while (++i < argc)
 	{
-		if (handling_arguments(argv[i]))
+		if (handling_arguments(argv[i], ps))
 		{
-			if (checking_duplicity(ft_atoi(argv[i]), ps->a) == 1)
+			if (checking_duplicity(ft_atoi(argv[i]), ps) == 1)
 			{
 				ps->size++;
 				if (ps->a->node == NULL)

@@ -2,7 +2,7 @@ CC= cc
 CFLAGS= -g -Wall -Wextra -Werror
 SRC= push_swap.c stacks.c free_functions.c movements_a.c movements_b.c \
 movements_a_and_b.c organizing_the_inverse_pyramid.c \
-organizing_the_pyramid.c aux_functions.c
+organizing_the_pyramid.c aux_functions.c under_six.c
 OFILES= $(SRC:.c=.o)
 NAME= push_swap
 LIBFT_DIR= ./libraries/Libft
